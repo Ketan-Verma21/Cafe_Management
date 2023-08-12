@@ -1,0 +1,50 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 12-Aug-2023, 2:40:23 pm
+    Author     : KV_II
+*/
+
+.header{
+    -fx-background-color: linear-gradient(to bottom right, #098c53, #246861); 
+    -fx-border-color: #fff;
+    -fx-border-width: 0 0 0.8px 0;
+}
+.nav-form{
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #286155);
+}
+.nav-btn{
+    -fx-background-color:transparent;
+    -fx-border-color:#fff;
+    -fx-border-width:0.4px;
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size:14px;
+}
+.nav-btn:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill:#000;
+}
+.logout{
+    -fx-background-color: #106abf;
+    -fx-padding: 5px;
+    -fx-cursor: hand;
+    -fx-background-radius: 50px;
+}
+.logout:hover{
+    -fx-background-color: #a71931;
+}
+.shadow{
+    -fx-effect: dropshadow(three-pass-box,rgba(0,0,0,0.5),5,0,0,0);
+}
+.white-bg{
+    -fx-background-color: #fff;
+}
+.radius{
+    -fx-background-radius: 8px;
+}
+.transparent{
+    -fx-background-color: transparent;
+}
