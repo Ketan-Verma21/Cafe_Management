@@ -28,6 +28,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
@@ -117,7 +121,7 @@ public class FXMLDocumentController implements Initializable {
     private ResultSet result;
 
     private Alert alert;
-
+    
     public void loginBtn() {
         if (si_username.getText().isEmpty() || si_password.getText().isEmpty()) {
             alert = new Alert(AlertType.ERROR);
@@ -134,11 +138,23 @@ public class FXMLDocumentController implements Initializable {
                 prepare.setString(2, si_password.getText().toString());
                 result = prepare.executeQuery();
                 if (result.next()) {
+                    data.username=si_username.getText().toString();
                     alert = new Alert(AlertType.CONFIRMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
                     alert.setContentText("Login is Successfull");
                     alert.showAndWait();
+                    Parent root=FXMLLoader.load(getClass().getResource("mainForm.fxml"));
+                    Stage stage=new Stage();
+                    Scene scene=new Scene(root);
+                    stage.setTitle("Cafe Management System");
+                    stage.setMinWidth(1100);
+                    stage.setMaxHeight(600);
+                    
+                    stage.setScene(scene);
+                    stage.show();
+                    si_loginBtn.getScene().getWindow().hide();
+                    
                 } else {
                     alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Login Error");
