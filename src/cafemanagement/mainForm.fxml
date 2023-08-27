@@ -53,7 +53,7 @@
                         <Button fx:id="dashboard_btn" layoutX="7.0" layoutY="179.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="DASHBOARD" />
                         <Button fx:id="inventory_btn" layoutX="6.0" layoutY="232.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="INVENTORY" />
                         <Button fx:id="menu_btn" layoutX="6.0" layoutY="283.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="MENU" />
-                        <Button fx:id="customers_btn" layoutX="5.0" layoutY="336.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="CUSTOMERS" />
+                        <Button fx:id="customers_btn" layoutX="5.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="210.0" styleClass="nav-btn" stylesheets="@mainFormDesign.css" text="CUSTOMERS" />
                         <Button fx:id="logout_btn" layoutX="7.0" layoutY="554.0" mnemonicParsing="false" onAction="#logout" stylesheets="@mainFormDesign.css" AnchorPane.bottomAnchor="12.399999999999999" AnchorPane.leftAnchor="14.0">
                            <graphic>
                               <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="2em" />
@@ -76,7 +76,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane fx:id="dashboard_form" layoutX="76.0" layoutY="80.0" prefHeight="600.0" prefWidth="877.6" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="dashboard_form" layoutX="76.0" layoutY="80.0" prefHeight="600.0" prefWidth="877.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="169.0" prefWidth="850.0" stylesheets="@mainFormDesign.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
                            <styleClass>
@@ -96,7 +96,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="0" textFill="WHITE">
+                                                <Label fx:id="dashboard_NC" alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="0" textFill="WHITE">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
@@ -111,7 +111,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="₹0.0" textFill="WHITE">
+                                                <Label fx:id="dashboard_TI" alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="₹0.0" textFill="WHITE">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
@@ -126,7 +126,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="₹0.0" textFill="WHITE">
+                                                <Label fx:id="dashboard_TotalI" alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="₹0.0" textFill="WHITE">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
@@ -141,7 +141,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="0" textFill="WHITE">
+                                                <Label fx:id="dashboard_NSP" alignment="CENTER_RIGHT" layoutX="97.0" layoutY="14.0" prefHeight="22.0" prefWidth="147.0" text="0" textFill="WHITE">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
@@ -167,7 +167,7 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <AreaChart layoutX="-10.0" layoutY="-21.0" prefHeight="343.0" prefWidth="409.0" title="Day Income Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AreaChart fx:id="dashboard_incomeChart" layoutX="-10.0" layoutY="-21.0" prefHeight="343.0" prefWidth="409.0" title="Day Income Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" />
                                       </xAxis>
@@ -184,7 +184,7 @@
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <BarChart layoutX="-74.0" layoutY="-16.0" prefHeight="383.99999999999994" prefWidth="426.4" title="Customer's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <BarChart fx:id="dashboard_CustomerChart" layoutX="-74.0" layoutY="-16.0" prefHeight="383.99999999999994" prefWidth="426.4" title="Customer's Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <xAxis>
                                         <CategoryAxis side="BOTTOM" />
                                       </xAxis>
@@ -286,7 +286,7 @@
                         <Separator layoutX="13.0" layoutY="311.0" prefHeight="3.0" prefWidth="844.0" AnchorPane.bottomAnchor="285.8" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="menu_form" layoutX="203.0" layoutY="69.0" prefHeight="600.0" prefWidth="877.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="menu_form" layoutX="203.0" layoutY="69.0" prefHeight="600.0" prefWidth="877.6" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="566.0" prefWidth="520.0" stylesheets="@mainFormDesign.css" AnchorPane.bottomAnchor="16.600000000000023" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="343.6" AnchorPane.topAnchor="17.0">
                            <styleClass>
@@ -348,7 +348,36 @@
                               </Label>
                               <Button fx:id="menu_payBtn" layoutX="22.0" layoutY="422.0" mnemonicParsing="false" onAction="#menuPayBtn" prefHeight="40.0" prefWidth="275.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Pay" AnchorPane.bottomAnchor="104.39999999999998" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.80000000000001" />
                               <Button fx:id="menu_removeBtn" layoutX="34.0" layoutY="479.0" mnemonicParsing="false" onAction="#menuRemoveBtn" prefHeight="40.0" prefWidth="114.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Remove" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="22.0" />
-                              <Button layoutX="172.0" layoutY="479.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="114.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Receipt" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="22.80000000000001" />
+                              <Button layoutX="172.0" layoutY="479.0" mnemonicParsing="false" onAction="#menuReceiptBtn" prefHeight="40.0" prefWidth="114.0" styleClass="btn" stylesheets="@mainFormDesign.css" text="Receipt" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="22.80000000000001" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="customers_form" layoutX="25.0" layoutY="26.0" prefHeight="600.0" prefWidth="877.6" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="17.0" layoutY="20.0" prefHeight="559.0" prefWidth="842.0" stylesheets="@mainFormDesign.css" AnchorPane.bottomAnchor="20.799999999999955" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="18.200000000000045" AnchorPane.topAnchor="20.0">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="radius" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Customers" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="customers_tableView" layoutX="10.0" layoutY="65.0" prefHeight="469.0" prefWidth="822.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="24.600000000000023" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0">
+                                <columns>
+                                  <TableColumn fx:id="customers_col_customerID" prefWidth="207.9999599456787" text="Customer ID" />
+                                  <TableColumn fx:id="customers_col_total" prefWidth="236.00003051757812" text="Total(₹)" />
+                                    <TableColumn fx:id="customers_col_date" prefWidth="180.80001831054688" text="Date" />
+                                    <TableColumn fx:id="customers_col_cashier" prefWidth="196.80010986328125" text="Cashier" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
                            </children>
                         </AnchorPane>
                      </children>
